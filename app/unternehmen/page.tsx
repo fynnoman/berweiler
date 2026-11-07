@@ -12,10 +12,10 @@ export default function UnternehmenPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-black text-white -mt-14 min-h-[70vh] md:min-h-[85vh] flex items-end">
+      <section className="relative overflow-hidden bg-black text-white -mt-24 min-h-[70vh] md:min-h-[85vh] flex items-end">
         <Image src={IMAGES.workshop} alt="" fill sizes="100vw" className="object-cover opacity-70" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/90" />
-        <div className="relative z-10 mx-auto max-w-[1400px] w-full px-5 md:px-6 pt-32 md:pt-40 pb-16 md:pb-20">
+        <div className="relative z-10 mx-auto max-w-[1400px] w-full px-5 md:px-6 pt-40 md:pt-48 pb-16 md:pb-20">
           <Reveal>
             <p className="text-[11px] uppercase tracking-[0.3em] text-white/70">Unser Unternehmen</p>
             <h1 className="mt-5 md:mt-6 text-[40px] sm:text-[56px] md:text-[104px] lg:text-[136px] font-semibold tracking-[-0.03em] md:tracking-[-0.035em] leading-[0.98] md:leading-[0.9] headline-sheen">

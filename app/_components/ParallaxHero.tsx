@@ -5,18 +5,13 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { IMAGES, SITE } from "../_lib/site";
 
-const SLIDES = [IMAGES.hero, IMAGES.sparks, IMAGES.industrial];
-
 export function ParallaxHero() {
-  const [idx, setIdx] = useState(0);
   const [y, setY] = useState(0);
   const [mounted, setMounted] = useState(false);
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    const t = setInterval(() => setIdx((i) => (i + 1) % SLIDES.length), 5500);
-    return () => clearInterval(t);
   }, []);
 
   useEffect(() => {
@@ -34,29 +29,25 @@ export function ParallaxHero() {
   return (
     <section
       ref={ref}
-      className="relative -mt-14 h-[100svh] min-h-[600px] md:min-h-[720px] w-full overflow-hidden bg-black text-white"
+      className="relative -mt-24 h-[100svh] min-h-[640px] md:min-h-[760px] w-full overflow-hidden bg-black text-white"
     >
-      {SLIDES.map((src, i) => (
-        <div
-          key={src}
-          className="absolute inset-0 transition-opacity duration-[1800ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-          style={{
-            opacity: i === idx ? 1 : 0,
-            transform: `translate3d(0, ${y * 0.35}px, 0) scale(${1 + y * 0.0004})`,
-          }}
-        >
-          <Image
-            src={src}
-            alt=""
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className={`object-cover ${i === idx ? "animate-[kenburns_7s_ease-out_forwards]" : ""}`}
-          />
-        </div>
-      ))}
+      <div
+        className="absolute inset-0"
+        style={{
+          transform: `translate3d(0, ${y * 0.35}px, 0) scale(${1 + y * 0.0004})`,
+        }}
+      >
+        <Image
+          src={IMAGES.hero}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover animate-[kenburns_14s_ease-out_forwards]"
+        />
+      </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/15 to-black/85" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -129,24 +120,14 @@ export function ParallaxHero() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-0 right-0 z-10 flex flex-col items-center gap-3">
-        <div className="flex gap-1.5">
-          {SLIDES.map((_, i) => (
-            <span
-              key={i}
-              className={`h-[3px] rounded-full transition-all duration-700 ${
-                i === idx ? "w-8 bg-white" : "w-4 bg-white/30"
-              }`}
-            />
-          ))}
-        </div>
+      <div className="absolute bottom-6 left-0 right-0 z-10 flex justify-center">
         <span className="text-[10px] tracking-[0.35em] uppercase text-white/50">Scroll</span>
       </div>
 
       <style jsx>{`
         @keyframes kenburns {
           from { transform: scale(1); }
-          to { transform: scale(1.08); }
+          to { transform: scale(1.12); }
         }
       `}</style>
     </section>

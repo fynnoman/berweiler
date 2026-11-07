@@ -10,10 +10,10 @@ export const metadata = {
 export default function AktuellesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-black text-white -mt-14 min-h-[55vh] md:min-h-[60vh] flex items-end">
+      <section className="relative overflow-hidden bg-black text-white -mt-24 min-h-[55vh] md:min-h-[60vh] flex items-end">
         <Image src={IMAGES.team} alt="" fill sizes="100vw" className="object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black" />
-        <div className="relative z-10 mx-auto max-w-[1400px] w-full px-5 md:px-6 pt-32 md:pt-40 pb-16 md:pb-20">
+        <div className="relative z-10 mx-auto max-w-[1400px] w-full px-5 md:px-6 pt-40 md:pt-48 pb-16 md:pb-20">
           <Reveal>
             <p className="text-[11px] uppercase tracking-[0.3em] text-white/70">Aktuelles</p>
             <h1 className="mt-5 text-[34px] sm:text-[48px] md:text-[96px] font-semibold tracking-[-0.03em] md:tracking-[-0.035em] leading-[1] md:leading-[0.95] headline-sheen">
