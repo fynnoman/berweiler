@@ -64,10 +64,9 @@ html {
   border-top: 1px solid var(--color-line);
 }
 
-/* Global PLATZHALTER overlay on every Next.js fill-Image */
-*:has(> img[data-nimg="fill"]) {
-  position: relative;
-}
+/* Global PLATZHALTER overlay on every Next.js fill-Image.
+   Do NOT set `position: relative` here — that would override `.absolute`
+   containers (e.g. the Hero background wrapper) and collapse them to 0×0. */
 *:has(> img[data-nimg="fill"])::after {
   content: "PLATZHALTER";
   position: absolute;
