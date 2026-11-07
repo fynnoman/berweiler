@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="de" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full bg-white text-[color:var(--color-ink)]">
         <SiteNav />
-        <main className="pt-12">{children}</main>
+        <main className="pt-14">{children}</main>
         <SiteFooter />
       </body>
     </html>

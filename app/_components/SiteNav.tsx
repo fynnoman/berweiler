@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV, SITE } from "../_lib/site";
+import { NAV } from "../_lib/site";
+import { Logo } from "./Logo";
 
 export function SiteNav() {
   const pathname = usePathname();
@@ -27,12 +28,13 @@ export function SiteNav() {
         scrolled ? "bg-white/80 backdrop-blur-xl border-b border-[color:var(--color-line)]" : "bg-white/60 backdrop-blur-lg"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 h-12">
+      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-5 md:px-6 h-14">
         <Link
           href="/"
-          className="text-[14px] font-semibold tracking-tight text-[color:var(--color-ink)]"
+          aria-label="Berweiler Metallkonzept GmbH"
+          className="flex items-center"
         >
-          {SITE.brand}
+          <Logo height={28} />
         </Link>
 
         <ul className="hidden md:flex items-center gap-7">

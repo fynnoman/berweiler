@@ -34,7 +34,7 @@ export function ParallaxHero() {
   return (
     <section
       ref={ref}
-      className="relative -mt-12 h-[100svh] min-h-[600px] md:min-h-[720px] w-full overflow-hidden bg-black text-white"
+      className="relative -mt-14 h-[100svh] min-h-[600px] md:min-h-[720px] w-full overflow-hidden bg-black text-white"
     >
       {SLIDES.map((src, i) => (
         <div

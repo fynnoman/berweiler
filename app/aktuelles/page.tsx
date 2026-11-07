@@ -10,7 +10,7 @@ export const metadata = {
 export default function AktuellesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-black text-white -mt-12 min-h-[55vh] md:min-h-[60vh] flex items-end">
+      <section className="relative overflow-hidden bg-black text-white -mt-14 min-h-[55vh] md:min-h-[60vh] flex items-end">
         <Image src={IMAGES.team} alt="" fill sizes="100vw" className="object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black" />
         <div className="relative z-10 mx-auto max-w-[1400px] w-full px-5 md:px-6 pt-32 md:pt-40 pb-16 md:pb-20">

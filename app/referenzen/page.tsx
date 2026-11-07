@@ -11,7 +11,7 @@ export default function ReferenzenPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-black text-white -mt-12 min-h-[70vh] md:min-h-[85vh] flex items-end">
+      <section className="relative overflow-hidden bg-black text-white -mt-14 min-h-[70vh] md:min-h-[85vh] flex items-end">
         <Image src={IMAGES.industrial} alt="" fill sizes="100vw" className="object-cover opacity-65" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/90" />
         <div className="relative z-10 mx-auto max-w-[1400px] w-full px-5 md:px-6 pt-32 md:pt-40 pb-16 md:pb-20">

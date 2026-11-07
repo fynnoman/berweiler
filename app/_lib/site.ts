@@ -24,11 +24,11 @@ export const NAV = [
 
 export const IMAGES = {
   hero:
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2400&q=80",
+    "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=2600&q=85",
   welding:
     "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=2000&q=80",
   workshop:
-    "https://images.unsplash.com/photo-1565043534407-2df8a4e9b5bf?auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1595781572981-d63151b232ed?auto=format&fit=crop&w=2000&q=80",
   stairs:
     "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80",
   railing:
@@ -38,7 +38,7 @@ export const IMAGES = {
   fence:
     "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80",
   industrial:
-    "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=2400&q=80",
+    "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2400&q=80",
   door:
     "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=2000&q=80",
   cad:
@@ -48,7 +48,7 @@ export const IMAGES = {
   steel:
     "https://images.unsplash.com/photo-1565689157206-0fddef7589a2?auto=format&fit=crop&w=2000&q=80",
   team:
-    "https://images.unsplash.com/photo-1581092334702-0883c098e602?auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1596496050827-8299e0220de1?auto=format&fit=crop&w=2000&q=80",
   blueprint:
     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2400&q=80",
   // Material close-ups
@@ -57,7 +57,7 @@ export const IMAGES = {
   matEdelstahl:
     "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80",
   matAluminium:
-    "https://images.unsplash.com/photo-1511378156800-20fcd50c72fa?auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=2000&q=80",
   // Cinematic wide shots
   cinema:
     "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=2600&q=80",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "../_lib/site";
+import { Logo } from "./Logo";
 
 export function SiteFooter() {
   return (
@@ -7,8 +8,10 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1200px] px-6 py-16">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <div className="text-[13px] font-semibold text-[color:var(--color-ink)]">{SITE.brand}</div>
-            <p className="mt-3 text-[12px] leading-5">
+            <Link href="/" aria-label="Berweiler Metallkonzept GmbH" className="inline-flex">
+              <Logo height={36} />
+            </Link>
+            <p className="mt-4 text-[12px] leading-5">
               Komplette Lösungen aus Stahl, Edelstahl und Aluminium.
             </p>
           </div>
