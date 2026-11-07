@@ -126,8 +126,7 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
                   <div className="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-                    <div className="text-[11px] uppercase tracking-[0.3em] text-white/70">0{i + 1}</div>
-                    <h3 className="mt-2 text-[36px] md:text-[44px] font-semibold tracking-[-0.025em] leading-none">
+                    <h3 className="text-[36px] md:text-[44px] font-semibold tracking-[-0.025em] leading-none">
                       {m.name}
                     </h3>
                     <p className="mt-3 text-[14px] text-white/80">{m.tagline}</p>
@@ -285,9 +284,8 @@ export default function HomePage() {
                   ].map((t, i) => (
                     <li
                       key={i}
-                      className="border-b border-white/10 py-5 flex items-start gap-5"
+                      className="border-b border-white/10 py-5"
                     >
-                      <span className="text-[11px] text-white/40 mt-1.5 w-8">0{i + 1}</span>
                       <span className="text-[16px] md:text-[18px] text-white/90">{t}</span>
                     </li>
                   ))}

@@ -83,8 +83,7 @@ export default function UnternehmenPage() {
                   "Zertifiziert nach EN 1090-2",
                   "Zeichenprogramm Tenado CAD 3D / Metall",
                 ].map((t, i) => (
-                  <li key={i} className="border-b border-[color:var(--color-line)] py-6 flex items-start gap-6">
-                    <span className="text-[11px] text-[color:var(--color-mute)] mt-1.5 w-10">0{i + 1}</span>
+                  <li key={i} className="border-b border-[color:var(--color-line)] py-6">
                     <span className="text-[18px] md:text-[22px] font-medium tracking-tight">{t}</span>
                   </li>
                 ))}

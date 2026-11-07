@@ -51,8 +51,7 @@ export default function LeistungenPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
                   <div className="relative z-10 flex h-full flex-col justify-end p-8">
-                    <div className="text-[11px] uppercase tracking-[0.3em] text-white/60">0{i + 1}</div>
-                    <h3 className="mt-3 text-[26px] md:text-[32px] font-semibold tracking-[-0.02em] leading-tight">
+                    <h3 className="text-[26px] md:text-[32px] font-semibold tracking-[-0.02em] leading-tight">
                       {l.title}
                     </h3>
                     <p className="mt-3 text-[14px] text-white/80">{l.text}</p>

@@ -95,8 +95,7 @@ export default function ReferenzenPage() {
             {REFERENZEN.map((r, i) => (
               <Reveal key={r.title} delay={i * 80}>
                 <div className="rounded-[20px] bg-white/5 backdrop-blur-lg border border-white/10 p-6 h-full">
-                  <div className="text-[11px] uppercase tracking-[0.3em] text-white/50">0{i + 1}</div>
-                  <div className="mt-3 text-[22px] font-semibold tracking-tight">{r.title}</div>
+                  <div className="text-[22px] font-semibold tracking-tight">{r.title}</div>
                   <p className="mt-3 text-[13px] text-white/70">{r.caption}</p>
                 </div>
               </Reveal>
