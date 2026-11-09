@@ -55,6 +55,21 @@ def main():
                 continue
             code, existing = api("GET", f"/repos/{OWNER}/{name}/contents/{PATH}")
             if code == 200:
+                # Update only the exact Jarvis-managed workflow when it differs.
+                current_content = existing.get("content", "").replace("\\n", "")
+                if current_content == template:
+                    continue
+                code, _ = api("PUT", f"/repos/{OWNER}/{name}/contents/{PATH}", {
+                    "message": "Synchronize Jarvis Claude workflow with central template",
+                    "content": template,
+                    "sha": existing["sha"],
+                    "branch": repo.get("default_branch") or "main",
+                })
+                if code in (200, 201):
+                    print(f"Updated workflow in {OWNER}/{name}")
+                    count += 1
+                else:
+                    errors.append(f"{name}: update HTTP {code}")
                 continue
             if code != 404:
                 errors.append(f"{name}: lookup HTTP {code}")
