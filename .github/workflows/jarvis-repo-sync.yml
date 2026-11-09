@@ -1,0 +1,21 @@
+name: Jarvis - Install workflow in new repositories
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install workflow into newly created repositories
+        env:
+          GH_SYNC_TOKEN: ${{ secrets.JARVIS_REPO_SYNC_TOKEN }}
+          OWNER: fynnoman
+          TEMPLATE_REPO: berweiler
+        run: python3 scripts/install_jarvis_workflow.py
