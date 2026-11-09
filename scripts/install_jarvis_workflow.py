@@ -1,7 +1,7 @@
 """Install the Jarvis workflow in repositories owned by OWNER.
 
 Requires JARVIS_REPO_SYNC_TOKEN with repository Contents read/write permissions.
-Does not overwrite existing workflows. Logs failures without exposing credentials.
+Updates the managed Jarvis workflow only when content differs. Logs failures without exposing credentials.
 """
 import base64
 import json
@@ -32,13 +32,17 @@ def api(method, path, payload=None):
     except urllib.error.HTTPError as error:
         return error.code, error.read().decode()[:500]
 
+def decode_content(item):
+    return base64.b64decode(item["content"]).decode("utf-8")
+
 def main():
     if not TOKEN:
         sys.exit("Missing secret JARVIS_REPO_SYNC_TOKEN")
     code, source = api("GET", f"/repos/{OWNER}/{SOURCE}/contents/{PATH}")
     if code != 200:
         sys.exit(f"Cannot read template workflow: HTTP {code}")
-    template = source["content"].replace("\\n", "")
+    template_text = decode_content(source)
+    template = base64.b64encode(template_text.encode("utf-8")).decode("ascii")
     errors = []
     page = 1
     count = 0
@@ -57,8 +61,8 @@ def main():
             code, existing = api("GET", f"/repos/{OWNER}/{name}/contents/{PATH}")
             if code == 200:
                 # Update only the exact Jarvis-managed workflow when it differs.
-                current_content = existing.get("content", "").replace("\\n", "")
-                if current_content == template:
+                current_content = decode_content(existing)
+                if current_content == template_text:
                     continue
                 code, _ = api("PUT", f"/repos/{OWNER}/{name}/contents/{PATH}", {
                     "message": "Synchronize Jarvis Claude workflow with central template",
@@ -73,7 +77,7 @@ def main():
                         read_code, latest = api("GET", f"/repos/{OWNER}/{name}/contents/{PATH}")
                         if read_code != 200:
                             break
-                        if latest.get("content", "").replace("\\n", "") == template:
+                        if decode_content(latest) == template_text:
                             code = 200
                             break
                         code, _ = api("PUT", f"/repos/{OWNER}/{name}/contents/{PATH}", {
