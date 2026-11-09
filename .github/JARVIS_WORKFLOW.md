@@ -27,3 +27,11 @@ GitHub kopiert Actions-Workflows **nicht automatisch** in jedes neue Repository.
 
 ## ChatGPT-Erinnerung
 Diese Datei ist eine **technische Referenz** und keine automatische ChatGPT-Memory-Synchronisierung. In neuen Chats: „Jarvis, verwende den Workflow aus `fynnoman/berweiler`, `.github/JARVIS_WORKFLOW.md`.“ Die Erinnerung in ChatGPT ist separat zu pflegen.
+
+## Stand 09.11.2026
+- Die zentrale Referenz-YAML verarbeitet jetzt `issues`, `issue_comment`, `pull_request` und `workflow_dispatch`.
+- Nur Issues/Kommentare von `fynnoman` mit `@claude` rufen Claude tatsächlich auf. Ein neu erstellter PR löst lediglich `verify-pr` aus, **nicht** Claude.
+- Vor einem direkten Merge von Claudes Branch nach `main` versucht die Action, vorhandene Node-Skripte `lint`, `typecheck` und `build` auszuführen. Andere Stacks brauchen eigene Prüfungen.
+- `workflow_dispatch` ist derzeit nur ein manueller Einstieg ohne ausführenden Job.
+- Die zentrale Referenz-Datei aktualisiert bestehende oder zukünftige Repositories **nicht automatisch**. Dafür ist zusätzlich ein Template oder ein Repository-Creation-Service erforderlich.
+- Secrets, Action-Ausführungsrechte, Branch-Regeln, Vercel und ein erfolgreicher End-to-End-Test bleiben je Repository zu prüfen.
