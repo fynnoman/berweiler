@@ -8,6 +8,7 @@ import json
 import os
 import sys
 import time
+import random
 import urllib.error
 import urllib.request
 
@@ -65,6 +66,24 @@ def main():
                     "sha": existing["sha"],
                     "branch": repo.get("default_branch") or "main",
                 })
+                if code == 409:
+                    # Retry transient Git ref conflicts with a fresh blob SHA.
+                    for attempt in range(4):
+                        time.sleep(2 ** attempt + random.random())
+                        read_code, latest = api("GET", f"/repos/{OWNER}/{name}/contents/{PATH}")
+                        if read_code != 200:
+                            break
+                        if latest.get("content", "").replace("\\n", "") == template:
+                            code = 200
+                            break
+                        code, _ = api("PUT", f"/repos/{OWNER}/{name}/contents/{PATH}", {
+                            "message": "Synchronize Jarvis Claude workflow with central template",
+                            "content": template,
+                            "sha": latest["sha"],
+                            "branch": repo.get("default_branch") or "main",
+                        })
+                        if code in (200, 201):
+                            break
                 if code in (200, 201):
                     print(f"Updated workflow in {OWNER}/{name}")
                     count += 1
